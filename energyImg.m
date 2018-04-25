@@ -4,7 +4,7 @@
 
 function energyImg = energy_img(im)
     double im = imread('inputseamCarvingPrague.jpg', unit8);
-    energyImg = sqrt(gradient(x) + gradient(y));
+    double energyImg = sqrt(gradient(x) + gradient(y));
 end 
 
 
