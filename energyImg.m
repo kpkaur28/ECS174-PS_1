@@ -3,7 +3,7 @@
 % energyImg
 
 function energyImg = energy_img(im)
-    energyImg = im(det(x)) + im(det(y));
+    energyImg = sqrt(gradient(x) + gradient(y));
 end 
 
 
