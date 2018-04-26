@@ -3,8 +3,8 @@
 % ECS 174
 % Script
 
-load('energy_img.m'); 
-load('cumulative_min_energy_map.m'); 
+run('energy_img.m'); 
+run('cumulative_min_energy_map.m'); 
 
 % Part 1
 energyImage = energy_img(imread('inputSeamCarvingPrague.jpg')); 
