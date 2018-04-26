@@ -10,10 +10,9 @@ function cumulativeEnergyMap = cumulative_min_energy_map(energyImg,seamDirection
     [rows, columns] = size(energyImage);
     M = zeros(size(energyImage));
     
-    
-    if strcmp(seamDirection, 'VERTICAL')
-        fprintf('Vertical');
-        
+   
+    if seamDirection == 'VERTICAL' 
+      % fprintf('Vertical');
         M(1,:) = energyImage(1,:);
         
         for i = 2:rows
@@ -31,9 +30,10 @@ function cumulativeEnergyMap = cumulative_min_energy_map(energyImg,seamDirection
             end
         end
         
-    elseif strcmp(seamDirection,'HORIZONTAL')
+    elseif seamDirection == 'HORIZONTAL'
+        
       M(:,1) = energyImage(:,1);
-        fprintf('Horizontal'); 
+      %  fprintf('Horizontal'); 
         for j = 1:columns
             for i = 2:rows                
                 if j == 1
