@@ -1,4 +1,5 @@
 % Kiranpreet Kaur
+% Zaryab Farooq
 % 04/20/2018
 % cumulativeEnergyMap
 
