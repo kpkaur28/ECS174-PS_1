@@ -6,7 +6,6 @@
 function cumulativeEnergyMap = cumulative_min_energy_map(energyImg,seamDirection)
     im = (uint8(double(imread('inputSeamCarvingPrague.jpg'))));
     energyImage = energy_img(im);
-    seamDirection = 'VERTICAL';
     
     [rows, columns] = size(energyImage);
     M = zeros(size(energyImage));
