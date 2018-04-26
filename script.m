@@ -7,10 +7,12 @@ run('energy_img.m');
 run('cumulative_min_energy_map.m'); 
 
 % Part 1
-energyImage = energy_img(imread('inputSeamCarvingPrague.jpg')); 
+im = imread('inputSeamCarvingPrague.jpg');
+energyImage = energy_img(im); 
 Figure(1);
 imagesc(energyImage);
-energyImage = energy_img(imread('inputSeamCarvingMall.jpg)'));
+im = imread('inputSeamCarvingMall.jpg)');
+energyImage = energy_img(im);
 Figure(2);
 imagesc(energyImage);
 
