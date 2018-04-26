@@ -10,11 +10,20 @@ imagesc(energyImage);
 energyImage = energy_img(imread('inputSeamCarvingMall.jpg)'));
 Figure(2);
 imagesc(energyImage);
+
+% Part 2
 seamDirection = 'VERTICAL';
-cumulative_min_energy_map(energImg, seamDirection);
+energyMap = cumulative_min_energy_map(energImg, seamDirection);
 Figure(3);
-imagesc(cumulative_min_energy_map); 
+imagesc(energyMap);
+
 seamDirection = 'HORZONTAL';
-cumulative_min_energy_map(energyImg, seamDirection);
+energyMap = cumulative_min_energy_map(energyImg, seamDirection);
 Figure(4);
-imagesc(cumulative_min_energy_map);
+imagesc(energyMap);
+
+% Part 3
+
+
+
+
