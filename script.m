@@ -18,7 +18,7 @@ imagesc(energyImage);
 
 % Part 2
 seamDirection = 'VERTICAL';
-energyMap = cumulative_min_energy_map(energImg, seamDirection);
+energyMap = cumulative_min_energy_map(energyImg, seamDirection);
 Figure(3);
 imagesc(energyMap);
 
