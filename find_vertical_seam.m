@@ -36,6 +36,7 @@ function verticalSeam = find_vertical_seam(cumulativeEnergyMap)
                 M(:, 3) = B;
             end
         end
-        
+        imagesc(M);
     
 end 
+    
