@@ -2,45 +2,58 @@
 % 04/20/2018
 % cumulativeEnergyMap
 
+
 function cumulativeEnergyMap = cumulative_min_energy_map(energyImg,seamDirection)
-    im = (uint8(double(imread('inputSeamCarvingPrague.jpg'))));
-    energyImage = energy_img(im);
-    seamDirection = 'HORIZONTAL';
     
-    M = zeros(size(energyImage));
-    %Check if seamDirection = 'HORIZONTAL', 'VERTICAL'
+    [rows, columns] = size(energyImg);
+    M = zeros(size(energyImg));
+    
+    
     if strcmp(seamDirection, 'VERTICAL')
-        M(1,:) = energyImage(1,:);
-        for i = 2:size(energyImage,1)
-            for j = 1:size(energyImage,2)
-                x = M(i-1,j);
-                if j-1~=0
-                    x = [x M(i-1, j-1)];
+        fprintf('Vertical');
+        
+        M(1,:) = energyImg(1,:);
+        
+        for i = 2:rows
+            for j = 1:columns
+                if j == 1
+                    M(i,j) = min([M(i-1, j), M(i-1, j+1)]);
+                
+                elseif j == columns
+                    M(i,j) = min([M(i-1, j-1), M(i-1, j)]);
+                
+                else
+                    M(i,j) = min([M(i-1,j-1), M(i-1, j), M(i-1, j+1)]);
                 end
-                if j+1<size(energyImage,2)
-                    x = [x M(i-1, j+1)];
-                end
-                M(i,j) = energyImage(i,j) + min(x);
+                M(i,j) = M(i,j) + energyImg(i, j);
             end
         end
-    elseif strcmp(seamDirection, 'HORIZONTAL')
-        M(:,1) = energyImage(:,1);
-        for j = 2:size(energyImage,2)
-            for i = 1:size(energyImage,1)
-                x = M(i,j-1);
-                if i-1~=0
-                    x = [x M(i-1, j-1)];
+        
+    elseif strcmp(seamDirection,'HORIZONTAL')
+      M(:,1) = energyImg(:,1);
+      
+      trans = transpose(M);
+      transImg = transpose(energyImg);
+      
+      [rows, columns] = size(transImg);
+      
+      for i = 2:rows
+            for j = 1:columns         
+                if j == 1
+                    trans(i,j) = min([trans(i-1, j), trans(i-1, j+1)]);
+                 
+                elseif j == columns
+                    trans(i,j) = min([trans(i-1, j-1), trans(i-1, j)]);
+                  
+                else 
+                    
+                    trans(i,j) = min([trans(i-1,j-1), trans(i-1, j), trans(i-1, j+1)]);
                 end
-                if i+1<size(energyImage,1)
-                    x = [x M(i+1, j-1)];
-                end
-                M(i,j) = energyImage(i,j) + min(x);
+                trans(i,j) = trans(i,j) + transImg(i, j);
             end
-        end
-    else
-        fprintf('Error: invalid seam direction \n');
-    end
+      end
+      M = transpose(trans); % make the image normal again
     
-    imagesc(M);
+    end
     cumulativeEnergyMap = M;
 end
