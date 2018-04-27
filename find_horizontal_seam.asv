@@ -1,0 +1,13 @@
+% Kiranpreet Kaur
+% 04/20/2018
+% horizontalSeam
+
+function horizontalSeam = find_horizontal_seam(cumulativeEnergyMap)
+    horizontalSeam = [];
+    maxCol = size(cumulativeEnergyMap, 2);  %get total columns of matrix
+    
+    % taking min element, starting from last row going up
+    for i=maxRow:1
+       verticalSeam(end+1) = find(min(cumulativeEnergyMap(maxRow,:)));
+    end
+end 
