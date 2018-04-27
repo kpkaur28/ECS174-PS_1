@@ -3,59 +3,39 @@
 % ECS 174
 % Script
 
-<<<<<<< HEAD
-
 % Part 1
-im = (uint8(double(imread('inputSeamCarvingPrague.jpg'))));
-energyImage = energy_img(im); 
+im1 = imread('inputSeamCarvingPrague.jpg');
+im = im1;
+energyImage1 = energy_img(im1); 
 figure(1);
-imagesc(energyImage);
-
-%
-
-% Part 2
-seamDirection = 'VERTICAL';
-cumulativeEnergyMap = cumulative_min_energy_map(energyImage, seamDirection);
+imagesc(energyImage1);
+colormap gray;
+im2 = imread('inputSeamCarvingMall.jpg');
+im = im2;
+energyImage2 = energy_img(im2);
 figure(2);
-imagesc(cumulativeEnergyMap);
-
-seamDirection = 'HORIZONTAL';
-cumulativeEnergyMap = cumulative_min_energy_map(energyImage, seamDirection);
-figure(3);
-imagesc(cumulativeEnergyMap);
-
-% Part 3
-verticalSeam = find_vertical_seam(cumulativeEnergyMap);
-
-% Part 4
-=======
-run('energy_img.m'); 
-run('cumulative_min_energy_map.m'); 
-
-% Part 1
-im = imread('inputSeamCarvingPrague.jpg');
-energyImage = energy_img(im); 
-Figure(1);
-imagesc(energyImage);
-im = imread('inputSeamCarvingMall.jpg)');
-energyImage = energy_img(im);
-Figure(2);
-imagesc(energyImage);
+imagesc(energyImage2);
+colormap gray;
 
 % Part 2
 seamDirection = 'VERTICAL';
+im = imread('inputSeamCarvingPrague.jpg');
+energyImg = energy_img(im);
 energyMap = cumulative_min_energy_map(energyImg, seamDirection);
-Figure(3);
+figure(3);
 imagesc(energyMap);
 
 seamDirection = 'HORZONTAL';
+im = imread('inputSeamCarvingPrague.jpg');
+energyImg = energy_img(im);
 energyMap = cumulative_min_energy_map(energyImg, seamDirection);
-Figure(4);
+figure(4);
 imagesc(energyMap);
 
 % Part 3
-
-
->>>>>>> 5feea18bc5bbba744c5f528e19761f932ed92d8f
-
-
+seamDirection = 'VERTICAL';
+im = imread('inputSeamCarvingPrague.jpg');
+energyImg = energy_img(im);
+cumulativeEnergyMap = cumulative_min_energy_map(energyImg, seamDirection);
+verticalSeam = find_vertical_seam(cumulativeEnergyMap);
+imagesc(verticalSeam);
