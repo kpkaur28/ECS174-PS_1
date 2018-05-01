@@ -29,5 +29,9 @@ imagesc(cumulativeEnergyMap);
 horizontalSeam = find_horizontal_seam(cumulativeEnergyMap);
 
 % Part 5
+figure(4);
 view_seam(im,verticalSeam,"VERTICAL");
+
+figure(5);
+view_seam(im,horizontalSeam,"HORIZONTAL");
 
