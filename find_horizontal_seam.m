@@ -13,9 +13,9 @@ function horizontalSeam = find_horizontal_seam(cumulativeEnergyMap)
     horizontalSeam(maxRow) = c;   % add the last col index
     
     % taking min element, starting from 2nd-last row going up
-    for i=maxRow:-1:2
+    for i=maxRow-1:-1:1
         if c==1 % if the first column, then check top and top right
-            [~, pos] = min([transCum(i-1,c), transCum(i-1,c+1)]);
+            [~, pos] = min([transCum(i,c), transCum(i,c+1)]);
             if pos == 1
                 horizontalSeam(i) = c;
             else
@@ -24,7 +24,7 @@ function horizontalSeam = find_horizontal_seam(cumulativeEnergyMap)
             end
             
         elseif c==maxCol %check top and top left
-            [~, pos] = min([transCum(i-1,c-1), transCum(i-1,c)]);
+            [~, pos] = min([transCum(i,c-1), transCum(i,c)]);
             if pos == 1
                 horizontalSeam(i) = c-1;
                 c = c - 1;
@@ -33,7 +33,7 @@ function horizontalSeam = find_horizontal_seam(cumulativeEnergyMap)
             end
             
         else   % check all top thre
-            [~, pos] = min([transCum(i-1,c-1), transCum(i-1,c), transCum(i-1,c+1)]);
+            [~, pos] = min([transCum(i,c-1), transCum(i,c), transCum(i,c+1)]);
              if pos == 1
                 horizontalSeam(i) = c-1;
                 c = c - 1;

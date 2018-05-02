@@ -35,3 +35,4 @@ view_seam(im,verticalSeam,"VERTICAL");
 figure(5);
 view_seam(im,horizontalSeam,"HORIZONTAL");
 
+% Part 6

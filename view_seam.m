@@ -7,7 +7,7 @@ function view_seam(im, seam, seamDirection)
     if strcmp(seamDirection, 'VERTICAL')
         [~, row] = size(seam);
 
-        for i=2:row
+        for i=1:row
             column = seam(i);
             im(i, column, 1) = 255;
             im(i, column, 2) = 0;
@@ -18,7 +18,7 @@ function view_seam(im, seam, seamDirection)
     else
         [column, ~] = size(seam);
   
-        for i=2:column
+        for i=1:column
             row = seam(i);
             im(row, i, 1) = 255;
             im(row, i, 2) = 0;
